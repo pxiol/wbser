@@ -26,7 +26,7 @@ class ResellerContractListUser
 class ResellerContractSOAP(ServiceBase):
 	
 	def sig
-	def verify
+	def verify_user
 	def get_info
-	def list_users
+	def lget_resellerUsers
 	

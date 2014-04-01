@@ -33,4 +33,42 @@ class ResellerContract:
 				return 
 		reseller_user.contract = contract
 		reseller_user.save()
-		return {succes:True}
+		return {success:True}
+
+	 def verify_user ( self, SNID, #Authentication_token taxpayer_id):
+
+        try:
+            reseller = Reseller.objects.get(id=SNID)
+
+       	except:
+       		self.is_valid = False
+       		return
+
+       	if reseller.type ==  'U':
+       		try:
+       			reseller_user == ReresellerUser.objects.filter(reseller=reseseller, taxpayer_id=taxpayer_id, snid=snid)
+       		except:
+       			self.is_valid = False
+       			return
+       	elif reseller.type =='I':
+       		try:
+       			resseller_user = ResellerUserInvoice.objects.filter(reseller=reseller, taxpayer_id=taxpayer_id, snid=snid)
+       		except:
+       			self.is_valid=False
+       			retunr
+       	reseller_user.success =success
+       	reseller_user.contract=contract
+       	reseller_user.save()
+       	return {success:True}
+
+     def get_resellerUsers( self, #authentication_token SNID, taxpayer_id, contract):
+
+     	try:
+     		reseller = Reseller.objects.get( id=SNID)
+     	except:
+     	    self.is_valid = False	
+     	    return
+
+     	
+
+

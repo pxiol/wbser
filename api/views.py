@@ -25,6 +25,7 @@ class ResellerContractListUser
 
 class ResellerContractSOAP(ServiceBase):
 	
+	@rpc()
 	def sig
 	def verify_user
 	def get_info

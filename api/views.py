@@ -25,9 +25,20 @@ class ResellerContractListUser
 
 class ResellerContractSOAP(ServiceBase):
 	
-	@rpc()
-	def sig
-	def verify_user
-	def get_info
-	def lget_resellerUsers
+	@rpc(string, boolean)
+	def sign (self, snid, taxpayer_id, contract = True):
+		   self.is_valid = False
+		   return
+
+    @rpc(string, string, string)
+	def verify_user (self, snid, authentication_token, taxpayer_id):
+		   self.is_valid = False
+           return   
+
+    @rpc(string, string)   
+	def get_info (self, snid):
+
+    @rpc(string, string)
+	def get_resellerUsers (self, authentication_token, snid):
+		return  
 	

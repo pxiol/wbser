@@ -35,7 +35,7 @@ class ResellerContract:
 		reseller_user.save()
 		return {success:True}
 
-	 def verify_user ( self, SNID, #Authentication_token taxpayer_id):
+	 def verify_user ( self, snid, #Authentication_token taxpayer_id):
 
         try:
             reseller = Reseller.objects.get(id=SNID)

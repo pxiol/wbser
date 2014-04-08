@@ -47,11 +47,12 @@ class ResellerContract:(object)
       reseller_user.success = success
       reseller_user.contract = contract
       reseller_user.save()
-      return {success:True}        
+      return {success:True, contract=True}        
 
+#Authentication_token
   def sign_contract(self, snid, taxpayer_id, contract=True):
 
-     try:
+    try:
       reseller = Reseller.objects.get(id=snid)
     except:
       self.is_valid = False
@@ -72,118 +73,17 @@ class ResellerContract:(object)
     reseller_user.contract = contract
     reseller_user.save()
     return {succes:True}
-  
-	
-<<<<<<< HEAD
-  #Authentication_token	
-=======
-	def __init__:
-		
-		
-	def get_info(self, snid):
-		try:
-			reseller = Reseller.objects.get(id=snid)
-		except:
-			self.is_valid = False
-			return 
-			
-		return {name:rseller.name, telephone:'31412541', email:reseller.email}
-		
->>>>>>> 66ce0651899986c6054d082eb05b7738fdc7538d
-	def sign(self, snid, taxpayer_id, contract=True):
 
-		try:
-			reseller = Reseller.objects.get(id=snid)
-		except:
-			self.is_valid = False
-			return 
-			
-		if reseller.type == 'U':
-			
+  #authentication_token
+     def get_resellerUsers( self, snid, taxpayer_id):
 
-
-			try:
-				reseller_user = ResellerUser.objects.filter(reseller=reseller, taxpayer_id=taxpayer_id)
-			except:
-				self.is_valid = False
-				return 
-		elif reseller.type == 'I':
-			try:
-				reseller_user = ResellerUserInvoice.objects.filter(reseller=reseller, taxpayer_id=taxpayer_id)
-			except:
-				self.is_valid = False
-				return 
-		reseller_user.contract = contract
-		reseller_user.save()
-		return {success:True}
-
-<<<<<<< HEAD
-  def get_resellerUsers(self, snid):
-=======
-        #authentitation_token
-	 def verify_user ( self, snid, taxpayer_id):
-
-        try:
-            reseller = Reseller.objects.get(id=snid)
-
-       	except:
-       		self.is_valid = False
-       		return
-
-       	if reseller.type ==  'U':
-       		try:
-       			reseller_user == ResellerUser.objects.filter(reseller=reseller, taxpayer_id=taxpayer_id, snid=snid)
-       		except:
-       			self.is_valid = False
-       			return
-       	elif reseller.type =='I':
-       		try:
-       			resseller_user = ResellerUserInvoice.objects.filter(reseller=reseller, taxpayer_id=taxpayer_id, snid=snid)
-       		except:
-       			self.is_valid=False
-       			return
-       	reseller_user.success =success
-       	reseller_user.contract=contract
-       	reseller_user.save()
-       	return {success:True}
-
-        #authentication_token
-     def get_resellerUsers( self, snid, taxpayer_id, contract):
-
-     	try:
-     		reseller = Reseller.objects.get( id=snid)
-     	except:
-     	    self.is_valid = False	
-     	    return
-
-     	  if resseler.type == 'U':
-     	  	try:
-     	  		reseller_user == ResellerUser.objects.filter(reseller = reseller, taxpayer_id= taxpayer_id, name = name, telephone= telephone, address= address, email= email, estado = estado)
-            except:
-            	self.is_valid = False
-            	return
-          elif reseller.type == 'I':
-          	try:
-          		reseller_user = ResellerUserInvoice.objects.filter(reseller=reseller, taxpayer_id= taxpayer_id, snid = snid, name = name, telephone= telephone, address= address, email= email, estado = estado)
-            except:
-                self.is_valid = False
-                retunr
-            reseller_user.contract = contract
-            reseller_user.save()
-            return {success:True}		
-
-
-
-        	
->>>>>>> 66ce0651899986c6054d082eb05b7738fdc7538d
-
-    try:
-        reseller = Reseller.objects.get(id=snid)
+      try:
+        reseller = Reseller.objects.get( id=snid)
       except:
           self.is_valid = False 
           return
-          
-      if resseler.type == 'U':
+
+        if resseler.type == 'U':
           try:
             reseller_user == ResellerUser.objects.filter(reseller = reseller, taxpayer_id= taxpayer_id, name = name, telephone= telephone, address= address, email= email, estado = estado)
             except:
@@ -194,9 +94,9 @@ class ResellerContract:(object)
               reseller_user = ResellerUserInvoice.objects.filter(reseller=reseller, taxpayer_id= taxpayer_id, snid = snid, name = name, telephone= telephone, address= address, email= email, estado = estado)
             except:
                 self.is_valid = False
-                retunr
-            reseller_user.contract = contract
-            reseller_user.save()
-            return {success:True} 
+                return 
 
-     
+          
+
+
+     	

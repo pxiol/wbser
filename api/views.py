@@ -26,7 +26,7 @@ class ResellerContractListUser
 class ResellerContractSOAP(ServiceBase):
 	
 	@rpc(string, boolean)
-	def sign (self, snid, taxpayer_id, contract = True):
+	def sign (self, snid, taxpayer_id, authentication_token, contract = True):    #verificar si va True el contract.
 		   self.is_valid = False
 		   return
 
@@ -36,7 +36,7 @@ class ResellerContractSOAP(ServiceBase):
            return   
 
     @rpc(string, string)   
-	def get_info (self, snid):
+	def get_info (self, snid, contract = True):  #verificar si va True el contract.
 
     @rpc(string, string)
 	def get_resellerUsers (self, authentication_token, snid):

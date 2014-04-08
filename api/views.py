@@ -26,8 +26,13 @@ class ResellerContractListUser
 
 class ResellerContractSOAP(ServiceBase):
 	
+<<<<<<< HEAD
 	@srpc(String(encoding='utf8'), String(encoding='utf8'), boolean)
 	def sign (self, snid, taxpayer_id, contract = True):
+=======
+	@rpc(string, boolean)
+	def sign (self, snid, taxpayer_id, authentication_token, contract = True):    #verificar si va True el contract.
+>>>>>>> 66ce0651899986c6054d082eb05b7738fdc7538d
 		   self.is_valid = False
 		   return
 
@@ -36,8 +41,13 @@ class ResellerContractSOAP(ServiceBase):
 		   self.is_valid = False
            return   
 
+<<<<<<< HEAD
     @srpc(String(encoding='utf8'))   
 	def get_info (self, snid):
+=======
+    @rpc(string, string)   
+	def get_info (self, snid, contract = True):  #verificar si va True el contract.
+>>>>>>> 66ce0651899986c6054d082eb05b7738fdc7538d
 
     @srpc(string, string)
 	def get_resellerUsers (self, authentication_token, snid):

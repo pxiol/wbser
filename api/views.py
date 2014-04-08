@@ -9,7 +9,7 @@ from spyne.model.complex import Array
 from spyne.model.complex import ComplexModel
 from spyne.service import ServiceBase
 from spyne.decorator import srpc
-from spyne.model.binary import File
+#from spyne.model.binary import File
 from spyne.model.primitive import Unicode
 from api.models import Reseller
 
@@ -26,11 +26,21 @@ class ResellerContractListUser
 
 class ResellerContractSOAP(ServiceBase):
 	
-	def sig
+	@srpc(String(encoding='utf8'), String(encoding='utf8'), boolean)
+	def sign (self, snid, taxpayer_id, contract = True):
+		   self.is_valid = False
+		   return
 
-	def verify_user
+    @srpc(string, string, string)
+	def verify_user (self, snid, authentication_token, taxpayer_id):
+		   self.is_valid = False
+           return   
 
-	def get_info
+    @srpc(String(encoding='utf8'))   
+	def get_info (self, snid):
 
-	def list_users
+    @srpc(string, string)
+	def get_resellerUsers (self, authentication_token, snid):
+		return  
+
 	

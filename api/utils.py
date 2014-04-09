@@ -75,7 +75,7 @@ class ResellerContract:(object)
     return {succes:True}
 
   #authentication_token
-     def get_resellerUsers( self, snid, taxpayer_id):
+     def get_resellerUsers( self, snid):
 
       try:
         reseller = Reseller.objects.get( id=snid)

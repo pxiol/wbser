@@ -65,30 +65,10 @@ class ResellerContract:(object)
        	reseller_user.success =success
        	reseller_user.contract=contract
        	reseller_user.save()
-       	return {success:True}
+       	return {success:True or False, contract: True or False}
 
-        #authentication_token
-     def get_resellerUsers( self, snid, authentication_token):
-
-     	try:
-     		reseller = Reseller.objects.get( id=snid)
-     	except:
-     	    self.is_valid = False	
-     	    return
-
-     	  if resseler.type == 'U':
-     	  	try:
-     	  		reseller_user == ResellerUser.objects.filter(snid = snid)
-
-          resseller_user = ResellerUserInvoice.objects.filter(reseller=reseller, taxpayer_id=taxpayer_id, snid=snid)
-        except:
-          self.is_valid = False
-          return
-      reseller_user.success = success
-      reseller_user.contract = contract
-      reseller_user.save()
-      return {success:True, contract=True}        
-
+   
+ 
 #Authentication_token
   def sign_contract(self, snid, taxpayer_id, contract=True, authentication_token):
 
@@ -112,9 +92,9 @@ class ResellerContract:(object)
         return 
     reseller_user.contract = contract
     reseller_user.save()
-    return {succes:True}
+    return {succes:True or False}
 
-  #authentication_token
+   #authentication_token
      def get_resellerUsers( self, snid, taxpayer_id, authentication_token):
 
       try:
@@ -132,20 +112,19 @@ class ResellerContract:(object)
               return
           elif reseller.type == 'I':
 
-          	try:
-          		reseller_user = ResellerUserInvoice.objects.filter(snid = snid)
+            try:
+              reseller_user = ResellerUserInvoice.objects.filter(snid = snid)
             except:
                 self.is_valid = False
-                retunr
-
-
+                return
 
             try:
               reseller_user = ResellerUserInvoice.objects.filter(reseller=reseller, taxpayer_id= taxpayer_id, snid = snid, name = name, telephone= telephone, address= address, email= email, estado = estado)
             except:
                 self.is_valid = False
-                return 
- 
+                return  {taxpayer_id: boolean, taxpayer_id: string, contract: boolean }
+                                 
 
 
-     	
+
+      

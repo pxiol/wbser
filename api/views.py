@@ -9,7 +9,7 @@ from spyne.model.primitive import Boolean
 #from spyne.model.complex import ComplexModel
 from spyne.service import ServiceBase
 from spyne.decorator import srpc
-#from spyne.model.primitive import Unicode
+from spyne.model.primitive import Unicode
 from api.models import Reseller
 #from django.conf import settings
 

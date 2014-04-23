@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from spyne.server.django import DjangoView
-from wbser.api.views import ResellerContractSOAP
+from api.views import ResellerContractSOAP
 from spyne.protocol.soap import Soap11
 
 urlpatterns = patterns('',

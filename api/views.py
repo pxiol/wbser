@@ -12,28 +12,32 @@ from spyne.decorator import srpc
 #from spyne.model.binary import File
 from spyne.model.primitive import Unicode
 from api.models import Reseller
-
 from django.conf import settings
 
 class ResellerContractSOAP(ServiceBase):
 		
-	@rpc(String, Boolean)
+	@srpc(String (encoding='utf8'),String(encoding='utf8'),String(encoding='utf8'),String(enconding='utf8'), Boolean(encoding='utf8'))
 	def sign (self, snid, taxpayer_id, authentication_token, contract):    #verificar si va True el contract.
 
 		   self.is_valid = False
 		   return
 
-    @srpc(String, String, String)
-	def verify_user (self, snid, authentication_token, taxpayer_id):
-		   self.is_valid = False
-           return   
+#    @srpc(String(encoding='utf8'),String(encoding='utf8'),String(encoding='utf8'),String(encoding='utf8'), _returns=UserLCOResult)
+#	def verify_user (self, snid, authentication_token, taxpayer_id):
 
-    @rpc(String, String)   
-	def get_info (self, snid, contract): 
-           return 
+#		   self.is_valid = False
+#           return   
 
-    @srpc(String, String)
-	def get_resellerUsers (self, authentication_token, snid):
-		   return  
+#    @srpc(String(encoding='utf8'),String(encoding='utf8'),String(encoding='utf8'), _returns=InfoLCOResult)   
+#	def get_info (self, snid, contract): 
+#
+#		   self.is_valid = False
+#          return 
+
+#    @srpc(String(encoding='utf8'),String(encoding='utf8'),String(encoding='utf8'), _returns=ResellerUsersCOResult)
+#    def get_resellerUsers (self, authentication_token, snid):
+
+#    	   self.is_valid = False
+#     	   return  
 
 	

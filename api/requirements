@@ -1,0 +1,53 @@
+1.- get_SNInfo
+
+	Parametros:
+		Authentication_token = string
+		SNID = string
+	
+	Regresa:
+		dict = {
+			name:
+			taxpayer_id:
+			telephone:
+			address:
+			email:
+			estado:
+		}
+
+		
+2.- verify_user 
+
+	Parametros:
+		Authentication_token = string
+		SNID = string
+		taxpayer_id = string
+		
+	Regresa:
+		{
+			success: True or False,
+			contract: True or False
+		}
+		
+3.- sign_contract
+
+	Parametros:
+		Authentication_token = string
+		SNID = string
+		taxpayer_id = string
+		contract = boolean (True flag)
+		
+	Regresa:
+		{
+			success: True or False,
+		}
+		
+4.- get_resellerUsers 
+
+	Parametros:
+		Authentication_token = string
+		SNID = string		
+		
+	Regresa:
+		[
+		 {taxpayer_id: string, contract:boolean}, {taxpayer_id: string, contract: boolean}....
+		]

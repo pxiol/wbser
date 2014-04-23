@@ -7,10 +7,17 @@ from django.conf import settings
 #from django.contrib.auth.models import User
 from datetime import datetime
 from datetime import timedelta
+#from settings import authentication_token
 
 
+class authentiaton:(object)
+
+   Authentication_token = 1
+   
 class ResellerContract:(object)
-#Authentication_token
+
+
+
 	def get_SNInfo(self, snid, authentication_token):
 
     try:

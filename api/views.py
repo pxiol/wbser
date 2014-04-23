@@ -16,31 +16,24 @@ from api.models import Reseller
 from django.conf import settings
 
 class ResellerContractSOAP(ServiceBase):
-	
-
-	@srpc(String(encoding='utf8'), String(encoding='utf8'), boolean)
-	def sign (self, snid, taxpayer_id, contract = True):
-
-	@rpc(string, boolean)
-	def sign (self, snid, taxpayer_id, authentication_token, contract = True):    #verificar si va True el contract.
+		
+	@rpc(String, Boolean)
+	def sign (self, snid, taxpayer_id, authentication_token, contract):    #verificar si va True el contract.
 
 		   self.is_valid = False
 		   return
 
-    @srpc(string, string, string)
+    @srpc(String, String, String)
 	def verify_user (self, snid, authentication_token, taxpayer_id):
 		   self.is_valid = False
            return   
 
+    @rpc(String, String)   
+	def get_info (self, snid, contract): 
+           return 
 
-    @srpc(String(encoding='utf8'))   
-	def get_info (self, snid):
-
-    @rpc(string, string)   
-	def get_info (self, snid, contract = True):  #verificar si va True el contract.
-
-    @srpc(string, string)
+    @srpc(String, String)
 	def get_resellerUsers (self, authentication_token, snid):
-		return  
+		   return  
 
 	

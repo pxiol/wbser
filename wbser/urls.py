@@ -1,17 +1,11 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from spyne.server.django import DjangoView
+from wbser.api.views import ResellerContractSOAP
+from spyne.protocol.soap import Soap11
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'wbser.views.home', name='home'),
-    # url(r'^wbser/', include('wbser.foo.urls')),
+ url(r'^wbser/', DjangoView.as_view(
+   services=[ResellerContractSOAP], tns='ResellerContractSOAP',
+   in_protocol=Soap11(), out_protocol=Soap11())),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-)
+ )
